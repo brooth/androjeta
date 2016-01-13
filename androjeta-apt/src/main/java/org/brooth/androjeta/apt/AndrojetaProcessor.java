@@ -19,9 +19,15 @@ import org.brooth.androjeta.apt.processors.FindViewProcessor;
 import org.brooth.androjeta.apt.processors.RetainProcessor;
 import org.brooth.jeta.apt.JetaProcessor;
 
+import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedSourceVersion;
+import javax.lang.model.SourceVersion;
+
 /**
  * @author Oleg Khalidov (brooth@gmail.com)
  */
+@SupportedAnnotationTypes("*")
+@SupportedSourceVersion(SourceVersion.RELEASE_5)
 public class AndrojetaProcessor extends JetaProcessor {
 
     @Override

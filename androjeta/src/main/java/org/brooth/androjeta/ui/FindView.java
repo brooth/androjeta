@@ -23,6 +23,8 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.FIELD)
 public @interface FindView {
+
     int value() default -1;
-    String id() default "";
+
+    String name() default "";
 }

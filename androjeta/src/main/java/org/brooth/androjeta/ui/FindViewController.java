@@ -15,6 +15,8 @@
  */
 package org.brooth.androjeta.ui;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import org.brooth.jeta.MasterController;
 import org.brooth.jeta.metasitory.Metasitory;
@@ -24,12 +26,21 @@ import org.brooth.jeta.metasitory.Metasitory;
  */
 public class FindViewController extends MasterController<Object, FindViewMetacode<Object>> {
 
-    protected FindViewController(Metasitory metasitory, Object master) {
+    public FindViewController(Metasitory metasitory, Object master) {
         super(metasitory, master, FindView.class);
     }
 
-    public void findViews(Context context) {
+    public void findViews() {
+        if (master instanceof Activity) {
+            findViews((Activity) master);
+            return;
+        }
+
+        throw new IllegalStateException("Master is not an activity, use findViews(Activity activity) instead");
+    }
+
+    public void findViews(Activity activity) {
         for (FindViewMetacode<Object> metacode : metacodes)
-            metacode.applyFindView(master, context);
+            metacode.applyFindViews(master, activity);
     }
 }

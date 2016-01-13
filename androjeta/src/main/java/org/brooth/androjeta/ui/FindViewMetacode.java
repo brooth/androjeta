@@ -15,11 +15,11 @@
  */
 package org.brooth.androjeta.ui;
 
-import android.content.Context;
+import android.app.Activity;
 
 /**
  * @author Oleg Khalidov (brooth@gmail.com)
  */
 public interface FindViewMetacode<M> {
-    void applyFindView(M master, Context context);
+    void applyFindViews(M master, Activity activity);
 }

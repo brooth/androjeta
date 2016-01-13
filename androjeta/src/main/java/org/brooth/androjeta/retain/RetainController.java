@@ -25,7 +25,7 @@ import org.brooth.jeta.metasitory.Metasitory;
  */
 public class RetainController extends MasterController<Object, RetainMetacode<Object>> {
 
-    protected RetainController(Metasitory metasitory, Object master) {
+    public RetainController(Metasitory metasitory, Object master) {
         super(metasitory, master, Retain.class);
     }
 
