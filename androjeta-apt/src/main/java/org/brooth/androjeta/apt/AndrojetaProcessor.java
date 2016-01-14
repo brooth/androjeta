@@ -16,6 +16,7 @@
 package org.brooth.androjeta.apt;
 
 import org.brooth.androjeta.apt.processors.FindViewProcessor;
+import org.brooth.androjeta.apt.processors.OnClickProcessor;
 import org.brooth.androjeta.apt.processors.RetainProcessor;
 import org.brooth.jeta.apt.JetaProcessor;
 
@@ -33,6 +34,7 @@ public class AndrojetaProcessor extends JetaProcessor {
     @Override
     protected void addProcessors() {
         addProcessor(new FindViewProcessor());
+        addProcessor(new OnClickProcessor());
         addProcessor(new RetainProcessor());
         super.addProcessors();
     }
