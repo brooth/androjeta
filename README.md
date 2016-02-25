@@ -1,7 +1,7 @@
 
 # Androjeta
 
-`Androjeta` - is a Open Source library that brings [Jeta][jeta] on android platform. If your are not familiar with Jeta it's recommended to read [README][jeta] first.
+`Androjeta` - is a Open Source library that brings [Jeta][jeta] on android platform. If your are not familiar with `Jeta` it's recommended to read [README][jeta] first.
 
 Examples:
 --------
@@ -41,7 +41,7 @@ class SampleActivity extends Activity {
    }
 }
 ```
-Note that in the example above `textView` field is bound to the `TextView` with id `R.id.sampleActivity_textView`. By the default, `Androjeta` generates id name as `<activity name started with lowercase>` + `_` + `<field name>`. You can specify the exact value:
+Note that in the example above `textView` field is bound to the `TextView` with id `R.id.sampleActivity_textView`. `Androjeta` generates id name as `<activity name started with lowercase>` + `_` + `<field name>` by the default. You can specify the exact value:
 ```java
 class SampleActivity extends BaseActivity {
     @FindView(R.id.sampleActivity_textView)
@@ -102,7 +102,7 @@ See [BaseActivity](#BaseActivity)'s code below.
         android:text="Save"/>
 </LinearLayout>
 ```
-
+To bind the `Button` to a method:
 ```java
 class SampleActivity extends BaseActivity {
     @OnClick
@@ -205,7 +205,7 @@ Complete installation script and samples are available in [androjeta-samples pro
 
 Configuration:
 --------------
-Please, read configuration section in [Jeta's README][jeta-configuration] first.
+Please, read `Configuration` section in [Jeta's README][jeta-configuration] first.
 
 If you are using [android-apt by Hugo Visser][android-apt-plugin], you can define the path to `jeta.properties` in the `arguments` section:
 ```groovy
