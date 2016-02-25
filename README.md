@@ -3,7 +3,7 @@
 
 `Androjeta` - is a Open Source library that brings [Jeta][jeta] on android platform. If your are not familiar with `Jeta` it's recommended to read [README][jeta] first.
 
-Examples:
+Usage:
 --------
 In addition to [Jeta's][jeta] features, `Androjeta` provides annotations that help in android development:
 
