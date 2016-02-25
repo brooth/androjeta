@@ -216,7 +216,7 @@ apt {
 }
 ```
 
-To be able to use @FindView, @OnClick and @OnLongClick with default names you need to define project's package in `jeta.properties`:
+To be able to use `@FindView`, `@OnClick` and `@OnLongClick` with default names you need to define project's package in `jeta.properties`:
 ```properties
 #project's applicationId
 application.package=com.company.project
