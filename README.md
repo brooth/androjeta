@@ -5,7 +5,7 @@
 
 Examples:
 --------
-In addition to [Jeta's][jeta] features, `Androjeta` provides annotations that help in the android development:
+In addition to [Jeta's][jeta] features, `Androjeta` provides annotations that help in android development:
 
 ### @FindView
 Its purpose is to eliminate `findViewById` usage.
@@ -41,7 +41,7 @@ class SampleActivity extends Activity {
    }
 }
 ```
-Note that in the example above `textView` field is bound to the `TextView` with id `R.id.sampleActivity_textView`. By the default, Androjeta generates id name as `<activity name started with lowercase>` + `_` + `<field name>`. You can specify the exact value:
+Note that in the example above `textView` field is bound to the `TextView` with id `R.id.sampleActivity_textView`. By the default, `Androjeta` generates id name as `<activity name started with lowercase>` + `_` + `<field name>`. You can specify the exact value:
 ```java
 class SampleActivity extends BaseActivity {
     @FindView(R.id.sampleActivity_textView)
@@ -55,7 +55,7 @@ class SampleActivity extends BaseActivity {
     TextView textView;
 }
 ```
-See [BaseActivity](#BaseActivity)'s code below.
+See [BaseActivity](#baseactivity)'s code below.
 
 ### @Retain
 Androjeta helps to avoid one of the most annoying boilerplate on android. No need anymore to use `onSaveInstanceState` callback to retain sensitive data:
@@ -126,7 +126,7 @@ class SampleActivity extends Activity implements View.OnClickListener {
     }
 }
 ```
-Note that `onClickSaveButton` is bound to `R.id.sampleActivity_saveButton`. By default Androjeta generates id name as: `<activity name started with lowercase>` + `_` + `<method name without 'onClick'>`. You can specify exact value:
+Note that `onClickSaveButton` is bound to `R.id.sampleActivity_saveButton`. By default `Androjeta` generates id name as: `<activity name started with lowercase>` + `_` + `<method name without 'onClick'>`. You can specify exact value:
 ```java
 class SampleActivity extends BaseActivity {
     @OnClick(R.id.sampleActivity_saveButton)
@@ -154,7 +154,7 @@ class SampleActivity extends BaseActivity {
     }
 }
 ```
-Note that `onLongClickSaveButton` returns `void`. In this case Androjeta generates `View.OnLongClickListener()` that returns `true` by default. You can change `void` to `boolean` to be able to return `false`.
+Note that `onLongClickSaveButton` returns `void`. In this case `Androjeta` generates `View.OnLongClickListener()` that returns `true` by default. You can change `void` to `boolean` to be able to return `false`.
 
 #### BaseActivity
 ```java
@@ -242,4 +242,4 @@ License
 [androjeta-samples]: https://github.com/brooth/androjeta-samples
 [jeta]: https://github.com/brooth/jeta
 [android-apt-plugin]: https://bitbucket.org/hvisser/android-apt
-[jeta-configuration]: :https://github.com/brooth/jeta#configuration
+[jeta-configuration]: https://github.com/brooth/jeta#configuration
