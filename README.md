@@ -86,7 +86,7 @@ class SampleActivity extends Activity {
     }
 }
 ```
-See [BaseActivity](#BaseActivity)'s code below.
+See [BaseActivity](#baseactivity)'s code below.
 
 ### @OnClick, @OnLongClick
 `@OnClick` binds `View.OnClickListener()` to a method:
