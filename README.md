@@ -1,13 +1,14 @@
+
 # Androjeta
 
 `Androjeta` - is a Open Source library that brings [Jeta][jeta] on android platform. If your are not familiar with Jeta it's recommended to read [README][jeta] first.
 
 Examples:
 --------
-In addition to [Jeta's][jeta] features, `Androjeta` provides  annotations that help android developers:
+In addition to [Jeta's][jeta] features, `Androjeta` provides annotations that help in the android development:
 
 ### @FindView
-`FindView` binds a view from the layout.
+Its purpose is to eliminate `findViewById` usage.
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,6 +22,7 @@ In addition to [Jeta's][jeta] features, `Androjeta` provides  annotations that h
 </LinearLayout>
 ```
 
+To bind the `TextView`:
 ```java
 class SampleActivity extends BaseActivity {
     @FindView
@@ -30,7 +32,7 @@ class SampleActivity extends BaseActivity {
 instead of:
 ```java
 class SampleActivity extends Activity {
-    private TextView textView;
+    TextView textView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,7 @@ class SampleActivity extends Activity {
    }
 }
 ```
-Note that in the example above `textView` is bound to `R.id.sampleActivity_textView` view. By the default, Androjeta generates id name as `<activity name started with lowercase>` + `_` + `<field name>`. You can specify concrete name:
+Note that in the example above `textView` field is bound to the `TextView` with id `R.id.sampleActivity_textView`. By the default, Androjeta generates id name as `<activity name started with lowercase>` + `_` + `<field name>`. You can specify the exact value:
 ```java
 class SampleActivity extends BaseActivity {
     @FindView(R.id.sampleActivity_textView)
@@ -53,7 +55,7 @@ class SampleActivity extends BaseActivity {
     TextView textView;
 }
 ```
-See `BaseActivity` code below.
+See [BaseActivity](#BaseActivity)'s code below.
 
 ### @Retain
 Androjeta helps to avoid one of the most annoying boilerplate on android. No need anymore to use `onSaveInstanceState` callback to retain sensitive data:
@@ -84,7 +86,7 @@ class SampleActivity extends Activity {
     }
 }
 ```
-See `BaseActivity` code below.
+See [BaseActivity](#BaseActivity)'s code below.
 
 ### @OnClick, @OnLongClick
 `@OnClick` binds `View.OnClickListener()` to a method:
@@ -116,10 +118,15 @@ class SampleActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
         findViewById(R.id.sampleActivity_saveButton).setOnClickListener(this);
-   }
+    }
+
+    @Override
+    public void onClick(View view) {
+        //...
+    }
 }
 ```
-Note that `onClickSaveButton` is bound to `R.id.sampleActivity_saveButton`. By default Androjeta generates id name as: `<activity name started with lowercase>` + `_` + `<method name without 'onClick'>`. You can specify concrete id:
+Note that `onClickSaveButton` is bound to `R.id.sampleActivity_saveButton`. By default Androjeta generates id name as: `<activity name started with lowercase>` + `_` + `<method name without 'onClick'>`. You can specify exact value:
 ```java
 class SampleActivity extends BaseActivity {
     @OnClick(R.id.sampleActivity_saveButton)
@@ -194,11 +201,13 @@ dependencies {
 ```
 Note that `Androjeta` is a annotation processing tool so you need an `apt` plugin. It's recommended to use [android-apt by Hugo Visser][android-apt-plugin]
 
+Complete installation script and samples are available in [androjeta-samples project][androjeta-samples]
+
 Configuration:
 --------------
-Please, read configuration section in [this readme][jeta] first.
+Please, read configuration section in [Jeta's README][jeta-configuration] first.
 
-If you are using [android-apt by Hugo Visser][android-apt-plugin], you can define the path to `jeta.properties` in `arguments` section:
+If you are using [android-apt by Hugo Visser][android-apt-plugin], you can define the path to `jeta.properties` in the `arguments` section:
 ```groovy
 apt {
     arguments {
@@ -212,8 +221,6 @@ To be able to use @FindView, @OnClick and @OnLongClick with default names you ne
 #project's applicationId
 application.package=com.company.project
 ```
-
-Complete gradle script and samples are available in [androjeta-samples project][androjeta-samples]
 
 License
 -------
@@ -235,3 +242,4 @@ License
 [androjeta-samples]: https://github.com/brooth/androjeta-samples
 [jeta]: https://github.com/brooth/jeta
 [android-apt-plugin]: https://bitbucket.org/hvisser/android-apt
+[jeta-configuration]: :https://github.com/brooth/jeta#configuration
