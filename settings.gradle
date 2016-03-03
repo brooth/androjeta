@@ -20,6 +20,6 @@ include ':androjeta'
 include ':androjeta-apt'
 
 gradle.ext.GROUP_ID = 'org.brooth.androjeta'
-gradle.ext.VERSION = '0.1-alpha'
-gradle.ext.VERSION_DESC = 'First alpha version'
+gradle.ext.VERSION = '0.2-beta'
+gradle.ext.VERSION_DESC = 'second beta version'
 gradle.ext.VERSION_VCS_TAG = gradle.VERSION

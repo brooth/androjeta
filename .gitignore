@@ -13,3 +13,4 @@ build/
 bin/
 .apt_generated/
 .idea/
+local.properties

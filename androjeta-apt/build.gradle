@@ -16,15 +16,31 @@
 
 apply plugin: 'java'
 
-repositories{
+repositories {
     mavenLocal()
     mavenCentral()
     maven {
-        url  "http://dl.bintray.com/brooth/maven"
+        url "http://dl.bintray.com/brooth/maven"
     }
 }
 
 dependencies {
     compile project(':androjeta')
-    compile 'org.brooth.jeta:jeta-apt:0.3-alpha'
+    compile 'org.brooth.jeta:jeta-apt:0.2-beta:noapt'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'src'
+    from sourceSets.main.allSource
+}
+
+task noAptJar(type: Jar, dependsOn: jar) {
+    classifier = 'noapt'
+    from sourceSets.main.output
+    exclude 'META-INF/services'
+}
+
+artifacts {
+    archives sourcesJar
+    archives noAptJar
 }
