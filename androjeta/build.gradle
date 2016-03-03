@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-def androidBuildVersion = 21
+def androidBuildVersion = 23
 def androidHome = System.getenv('ANDROID_HOME')
 
 apply plugin: 'java'
@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     compile files(["$androidHome/platforms/android-$androidBuildVersion/android.jar"])
-    compile 'org.brooth.jeta:jeta:0.2-beta'
+    compile 'org.brooth.jeta:jeta:0.3-beta'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

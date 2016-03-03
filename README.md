@@ -5,7 +5,7 @@
 
 Usage:
 --------
-In addition to [Jeta's][jeta] features, `Androjeta` provides annotations that help in android development:
+In addition to [Jeta's][jeta] features, `Androjeta` provides a number of annotations that help in android development:
 
 ### @FindView
 Its purpose is to eliminate `findViewById` usage.
@@ -195,8 +195,8 @@ repositories {
 }
 
 dependencies {
-    apt 'org.brooth.androjeta:androjeta-apt:0.1-alpha'
-    compile 'org.brooth.androjeta:androjeta:0.1-alpha'
+    apt 'org.brooth.androjeta:androjeta-apt:0.2-alpha'
+    compile 'org.brooth.androjeta:androjeta:0.2-alpha'
 }
 ```
 Note that `Androjeta` is a annotation processing tool so you need an `apt` plugin. It's recommended to use [android-apt by Hugo Visser][android-apt-plugin]
