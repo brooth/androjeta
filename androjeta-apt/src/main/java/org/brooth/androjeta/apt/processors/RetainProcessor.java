@@ -64,14 +64,15 @@ public class RetainProcessor extends AbstractProcessor {
 
         for (Element element : roundContext.elements()) {
             String fieldName = element.getSimpleName().toString();
+            String fieldType = processingContext.processingEnv().getTypeUtils().erasure(element.asType()).toString();
             String methodPostfix = getMethodPostfix(element);
             String key = roundContext.metacodeContext().masterElement().getSimpleName().toString() + "_" + fieldName;
 
             saveMethodBuilder.addStatement("bundle.put$L($S, master.$L)",
                     methodPostfix, key, fieldName);
 
-            restoreMethodBuilder.addStatement("master.$L = ($T) bundle.get$L($S)",
-                    fieldName, ClassName.get(element.asType()), methodPostfix, key);
+            restoreMethodBuilder.addStatement("master.$L = ($L) bundle.get$L($S)",
+                    fieldName, fieldType, methodPostfix, key);
         }
 
         builder.addMethod(saveMethodBuilder.build());
