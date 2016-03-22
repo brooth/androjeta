@@ -20,20 +20,21 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
+
 import org.brooth.androjeta.ui.OnClick;
 import org.brooth.androjeta.ui.OnClickMetacode;
 import org.brooth.androjeta.ui.OnLongClick;
-import org.brooth.jeta.apt.ProcessingContext;
 import org.brooth.jeta.apt.RoundContext;
 import org.brooth.jeta.apt.processors.AbstractProcessor;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.Modifier;
 import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Modifier;
 
 /**
  * @author Oleg Khalidov (brooth@gmail.com)
@@ -47,17 +48,6 @@ public class OnClickProcessor extends AbstractProcessor {
     }
 
     @Override
-    public void init(ProcessingContext processingContext) {
-        super.init(processingContext);
-
-        if (!processingContext.processingProperties().containsKey("application.package"))
-            throw new IllegalStateException("Option 'application.package' not presented, set it in jeta.properties " +
-                    "in order to use @OnClick");
-
-        appPackage = processingContext.processingProperties().getProperty("application.package");
-    }
-
-    @Override
     public Set<Class<? extends Annotation>> collectElementsAnnotatedWith() {
         Set<Class<? extends Annotation>> set = new HashSet<>(2);
         set.add(OnClick.class);
@@ -67,6 +57,14 @@ public class OnClickProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(TypeSpec.Builder builder, RoundContext roundContext) {
+        if (appPackage == null) {
+            if (!processingContext.processingProperties().containsKey("application.package"))
+                throw new IllegalStateException("Option 'application.package' not presented," +
+                        " set it in jeta.properties in order to use @OnClick/@OnLongClick in " +
+                        roundContext.metacodeContext().masterElement().getQualifiedName().toString());
+            appPackage = processingContext.processingProperties().getProperty("application.package");
+        }
+
         ClassName masterClassName = ClassName.get(roundContext.metacodeContext().masterElement());
         builder.addSuperinterface(ParameterizedTypeName.get(
                 ClassName.get(OnClickMetacode.class), masterClassName));

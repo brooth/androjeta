@@ -16,8 +16,10 @@
 package org.brooth.androjeta.ui;
 
 import android.app.Activity;
+
+import com.google.common.collect.Sets;
+
 import org.brooth.jeta.MasterController;
-import org.brooth.jeta.metasitory.Criteria;
 import org.brooth.jeta.metasitory.Metasitory;
 
 /**
@@ -26,15 +28,7 @@ import org.brooth.jeta.metasitory.Metasitory;
 public class OnClickController extends MasterController<Object, OnClickMetacode<Object>> {
 
     public OnClickController(Metasitory metasitory, Object master) {
-        super(metasitory, master);
-    }
-
-    protected Criteria criteria() {
-        return new Criteria.Builder()
-                .masterEqDeep(this.masterClass)
-                .usesAny(OnClick.class)
-                .usesAny(OnLongClick.class)
-                .build();
+        super(metasitory, master, Sets.newHashSet(OnClick.class, OnLongClick.class));
     }
 
     public void addListeners() {

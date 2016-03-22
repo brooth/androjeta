@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     compile files(["$androidHome/platforms/android-$androidBuildVersion/android.jar"])
-    compile 'org.brooth.jeta:jeta:0.3-beta'
+    compile 'org.brooth.jeta:jeta:0.5-beta'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
