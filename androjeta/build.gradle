@@ -22,9 +22,7 @@ apply plugin: 'java'
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
-        url  "http://dl.bintray.com/brooth/maven"
-    }
+    jcenter()
 }
 
 dependencies {
