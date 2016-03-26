@@ -195,8 +195,8 @@ repositories {
 }
 
 dependencies {
-    apt 'org.brooth.androjeta:androjeta-apt:0.3-beta'
-    compile 'org.brooth.androjeta:androjeta:0.3-beta'
+    apt 'org.brooth.androjeta:androjeta-apt:1.0'
+    compile 'org.brooth.androjeta:androjeta:1.0'
 }
 ```
 Note that `Androjeta` is a annotation processing tool so you need an `apt` plugin. It's recommended to use [android-apt by Hugo Visser][android-apt-plugin]

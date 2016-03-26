@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
     compile project(':androjeta')
-    compile 'org.brooth.jeta:jeta-apt:0.5-beta:noapt'
+    compile 'org.brooth.jeta:jeta-apt:1.0:noapt'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
