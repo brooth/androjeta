@@ -189,9 +189,7 @@ Installation (gradle):
 
 ```groovy
 repositories {
-    maven {
-        url  "http://dl.bintray.com/brooth/maven"
-    }
+    jcenter()
 }
 
 dependencies {
