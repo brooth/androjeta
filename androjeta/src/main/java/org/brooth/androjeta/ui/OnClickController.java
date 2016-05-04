@@ -17,10 +17,13 @@ package org.brooth.androjeta.ui;
 
 import android.app.Activity;
 
-import com.google.common.collect.Sets;
-
 import org.brooth.jeta.MasterController;
 import org.brooth.jeta.metasitory.Metasitory;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * @author Oleg Khalidov (brooth@gmail.com)
@@ -28,7 +31,7 @@ import org.brooth.jeta.metasitory.Metasitory;
 public class OnClickController extends MasterController<Object, OnClickMetacode<Object>> {
 
     public OnClickController(Metasitory metasitory, Object master) {
-        super(metasitory, master, Sets.newHashSet(OnClick.class, OnLongClick.class));
+        super(metasitory, master, new HashSet<>(Arrays.asList(OnClick.class, OnLongClick.class)));
     }
 
     public void addListeners() {

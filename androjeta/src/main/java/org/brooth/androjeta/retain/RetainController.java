@@ -16,7 +16,6 @@
 package org.brooth.androjeta.retain;
 
 import android.os.Bundle;
-import com.google.common.base.Preconditions;
 import org.brooth.jeta.MasterController;
 import org.brooth.jeta.metasitory.Metasitory;
 
@@ -30,14 +29,14 @@ public class RetainController extends MasterController<Object, RetainMetacode<Ob
     }
 
     public void save(Bundle outState) {
-        Preconditions.checkNotNull(outState);
+        assert outState != null;
 
         for (RetainMetacode<Object> metacode : metacodes)
             metacode.applySaveRetains(master, outState);
     }
 
     public void restore(Bundle savedInstanceState) {
-        Preconditions.checkNotNull(savedInstanceState);
+        assert savedInstanceState != null;
 
         for (RetainMetacode<Object> metacode : metacodes)
             metacode.applyRestoreRetains(master, savedInstanceState);
