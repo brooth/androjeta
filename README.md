@@ -7,6 +7,11 @@ Documentation:
 --------------
 Please, read the docs on [jeta.brooth.org](http://jeta.brooth.org/guide/androjeta/overview.html).
 
+Samples:
+--------
+[androjeta-samples](https://github.com/brooth/androjeta-samples)
+
+
 Installation (gradle):
 ----------------------
 
@@ -16,8 +21,8 @@ repositories {
 }
 
 dependencies {
-    apt 'org.brooth.androjeta:androjeta-apt:1.2'
-    compile 'org.brooth.androjeta:androjeta:1.2'
+    apt 'org.brooth.androjeta:androjeta-apt:1.3'
+    compile 'org.brooth.androjeta:androjeta:1.3'
 }
 ```
 
