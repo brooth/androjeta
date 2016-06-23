@@ -3,7 +3,7 @@
 
 `Androjeta` - is a Open Source library that brings [Jeta][jeta] on android platform.
 
-Documentation:
+Tutorials:
 --------------
 Please, read the docs on [jeta.brooth.org](http://jeta.brooth.org/guide/androjeta/overview.html).
 
@@ -21,8 +21,8 @@ repositories {
 }
 
 dependencies {
-    apt 'org.brooth.androjeta:androjeta-apt:1.3'
-    compile 'org.brooth.androjeta:androjeta:1.3'
+    apt 'org.brooth.androjeta:androjeta-apt:1.4'
+    compile 'org.brooth.androjeta:androjeta:1.4'
 }
 ```
 
