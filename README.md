@@ -3,7 +3,7 @@
 
 `Androjeta` - is a Open Source library that brings [Jeta][jeta] on android platform.
 
-Documentation:
+Tutorials:
 --------------
 Read the docs on [jeta.brooth.org](http://jeta.brooth.org/guide/androjeta/overview.html)
 
