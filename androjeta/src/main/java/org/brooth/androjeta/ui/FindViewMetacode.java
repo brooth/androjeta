@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Oleg Khalidov
+ * Copyright 2016 Oleg Khalidov
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,10 +16,12 @@
 package org.brooth.androjeta.ui;
 
 import android.app.Activity;
+import android.view.View;
 
 /**
  * @author Oleg Khalidov (brooth@gmail.com)
  */
 public interface FindViewMetacode<M> {
     void applyFindViews(M master, Activity activity);
+    void applyFindViews(M master, View view);
 }

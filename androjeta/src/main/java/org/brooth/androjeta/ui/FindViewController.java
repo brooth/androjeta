@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Oleg Khalidov
+ * Copyright 2016 Oleg Khalidov
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package org.brooth.androjeta.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.view.View;
 import android.content.Context;
 import org.brooth.jeta.MasterController;
 import org.brooth.jeta.metasitory.Metasitory;
@@ -42,5 +43,10 @@ public class FindViewController extends MasterController<Object, FindViewMetacod
     public void findViews(Activity activity) {
         for (FindViewMetacode<Object> metacode : metacodes)
             metacode.applyFindViews(master, activity);
+    }
+
+    public void findViews(View view) {
+        for (FindViewMetacode<Object> metacode : metacodes)
+            metacode.applyFindViews(master, view);
     }
 }

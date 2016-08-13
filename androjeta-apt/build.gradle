@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Oleg Khalidov
+ * Copyright 2016 Oleg Khalidov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
     compile project(':androjeta')
-    compile 'org.brooth.jeta:jeta-apt:1.3:noapt'
+    compile 'org.brooth.jeta:jeta-apt:2.0:noapt'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

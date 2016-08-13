@@ -5,7 +5,7 @@
 
 Documentation:
 --------------
-Please, read the docs on [jeta.brooth.org](http://jeta.brooth.org/guide/androjeta/overview.html).
+Read the docs on [jeta.brooth.org](http://jeta.brooth.org/guide/androjeta/overview.html)
 
 Samples:
 --------
@@ -21,15 +21,16 @@ repositories {
 }
 
 dependencies {
-    apt 'org.brooth.androjeta:androjeta-apt:1.3'
-    compile 'org.brooth.androjeta:androjeta:1.3'
+    apt 'org.brooth.androjeta:androjeta-apt:2.0'
+    compile 'org.brooth.androjeta:androjeta:2.0'
 }
 ```
+[Here](https://plugins.gradle.org/search?term=apt) to can find `apt` plugins.
 
 License
 -------
 
-    Copyright 2015 Oleg Khalidov
+    Copyright 2016 Oleg Khalidov
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

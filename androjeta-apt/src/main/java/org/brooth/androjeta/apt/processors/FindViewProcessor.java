@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Oleg Khalidov
+ * Copyright 2016 Oleg Khalidov
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -57,18 +57,28 @@ public class FindViewProcessor extends AbstractProcessor {
         builder.addSuperinterface(ParameterizedTypeName.get(
                 ClassName.get(FindViewMetacode.class), masterClassName));
 
+        builder.addMethod(MethodSpec.
+                methodBuilder("applyFindViews")
+                .addAnnotation(Override.class)
+                .addModifiers(Modifier.PUBLIC)
+                .returns(void.class)
+                .addParameter(masterClassName, "master")
+                .addParameter(ClassName.bestGuess("android.app.Activity"), "activity")
+                .addStatement("applyFindViews(master, activity.getWindow().getDecorView())")
+                .build());
+
         MethodSpec.Builder methodBuilder = MethodSpec.
                 methodBuilder("applyFindViews")
                 .addAnnotation(Override.class)
                 .addModifiers(Modifier.PUBLIC)
                 .returns(void.class)
                 .addParameter(masterClassName, "master")
-                .addParameter(ClassName.bestGuess("android.app.Activity"), "activity");
+                .addParameter(ClassName.bestGuess("android.view.View"), "view");
 
         for (Element element : roundContext.elements()) {
             String fieldName = element.getSimpleName().toString();
 
-            methodBuilder.addStatement("master.$L = ($T) activity.findViewById($L)",
+            methodBuilder.addStatement("master.$L = ($T) view.findViewById($L)",
                     fieldName, TypeName.get(element.asType()), getResName(element, roundContext));
         }
 
