@@ -20,6 +20,6 @@ include ':androjeta'
 include ':androjeta-apt'
 
 gradle.ext.GROUP_ID = 'org.brooth.androjeta'
-gradle.ext.VERSION = '2.0'
-gradle.ext.VERSION_DESC = '2.0 - findViews(View), jeta 2.0'
+gradle.ext.VERSION = '2.1'
+gradle.ext.VERSION_DESC = '2.1 - jeta 2.1'
 gradle.ext.VERSION_VCS_TAG = gradle.VERSION
