@@ -16,12 +16,10 @@
 package org.brooth.androjeta.ui;
 
 import android.app.Activity;
-
+import android.view.View;
 import org.brooth.jeta.MasterController;
 import org.brooth.jeta.metasitory.Metasitory;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -46,5 +44,10 @@ public class OnClickController extends MasterController<Object, OnClickMetacode<
     public void addListeners(Activity activity) {
         for (OnClickMetacode<Object> metacode : metacodes)
             metacode.applyOnClicks(master, activity);
+    }
+
+    public void addListeners(View view) {
+        for (OnClickMetacode<Object> metacode : metacodes)
+            metacode.applyOnClicks(master, view);
     }
 }

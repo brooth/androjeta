@@ -19,13 +19,24 @@ Installation (gradle):
 repositories {
     jcenter()
 }
+```
 
+Stable:
+```groovy
 dependencies {
-    apt 'org.brooth.androjeta:androjeta-apt:2.0'
-    compile 'org.brooth.androjeta:androjeta:2.0'
+    apt 'org.brooth.androjeta:androjeta-apt:1.4'
+    compile 'org.brooth.androjeta:androjeta:1.4'
 }
 ```
-[Here](https://plugins.gradle.org/search?term=apt) to can find `apt` plugins.
+
+Latest:
+```groovy
+dependencies {
+    apt 'org.brooth.androjeta:androjeta-apt:2.3'
+    compile 'org.brooth.androjeta:androjeta:2.3'
+}
+```
+[Here](https://plugins.gradle.org/search?term=apt) to can find available `apt` plugins.
 
 License
 -------

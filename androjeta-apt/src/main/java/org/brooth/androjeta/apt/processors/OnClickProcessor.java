@@ -69,13 +69,23 @@ public class OnClickProcessor extends AbstractProcessor {
         builder.addSuperinterface(ParameterizedTypeName.get(
                 ClassName.get(OnClickMetacode.class), masterClassName));
 
+        builder.addMethod(MethodSpec.
+                methodBuilder("applyOnClicks")
+                .addAnnotation(Override.class)
+                .addModifiers(Modifier.PUBLIC)
+                .returns(void.class)
+                .addParameter(masterClassName, "master")
+                .addParameter(ClassName.bestGuess("android.app.Activity"), "a")
+                .addStatement("applyOnClicks(master, a.getWindow().getDecorView())")
+                .build());
+
         MethodSpec.Builder methodBuilder = MethodSpec.
                 methodBuilder("applyOnClicks")
                 .addAnnotation(Override.class)
                 .addModifiers(Modifier.PUBLIC)
                 .returns(void.class)
                 .addParameter(masterClassName, "master", Modifier.FINAL)
-                .addParameter(ClassName.bestGuess("android.app.Activity"), "activity");
+                .addParameter(ClassName.bestGuess("android.view.View"), "v");
 
         ClassName viewClassName = ClassName.bestGuess("android.view.View");
 
@@ -100,8 +110,8 @@ public class OnClickProcessor extends AbstractProcessor {
                                 .build())
                         .build();
 
-                methodBuilder.addStatement("$T $L = ($T) activity.findViewById($L)",
-                        viewClassName, varName, viewClassName,
+                methodBuilder.addStatement("$T $L = v.findViewById($L)",
+                        viewClassName, varName,
                         getResName(element, onClickAnnotation.value(), onClickAnnotation.name(), "onClick", roundContext))
                         .beginControlFlow("if($L != null)", varName)
                         .addStatement("$L.setOnClickListener($L);", varName, listenerTypeSpec)
@@ -129,8 +139,8 @@ public class OnClickProcessor extends AbstractProcessor {
                         .addMethod(clickMethodBuilder.build())
                         .build();
 
-                methodBuilder.addStatement("$T $L = ($T) activity.findViewById($L)",
-                        viewClassName, varName, viewClassName,
+                methodBuilder.addStatement("$T $L = v.findViewById($L)",
+                        viewClassName, varName,
                         getResName(element, onLongClickAnnotation.value(), onLongClickAnnotation.name(), "onLongClick", roundContext))
                         .beginControlFlow("if($L != null)", varName)
                         .addStatement("$L.setOnLongClickListener($L);", varName, listenerTypeSpec)

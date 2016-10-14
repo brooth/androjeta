@@ -16,10 +16,13 @@
 package org.brooth.androjeta.ui;
 
 import android.app.Activity;
+import android.view.View;
 
 /**
  * @author Oleg Khalidov (brooth@gmail.com)
  */
 public interface OnClickMetacode<M> {
     void applyOnClicks(M master, Activity activity);
+
+    void applyOnClicks(M master, View view);
 }
